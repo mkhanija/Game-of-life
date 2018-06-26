@@ -5,9 +5,18 @@ package java;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
-public class AppTest {
-    @Test public void testAppHasAGreeting() {
+public class ConwayGameOfLifeTest {
+    /*@Test public void testAppHasAGreeting() {
         App classUnderTest = new App();
         assertNotNull("app should have a greeting", classUnderTest.getGreeting());
     }
+
+   /* @Test public void testInitialize() {
+        int[][] arr
+        assertEquals();
+
+        arr[4][1] = 1;
+        arr[4][2] = 1;
+        arr[4][3] = 1;
+    }*/
 }

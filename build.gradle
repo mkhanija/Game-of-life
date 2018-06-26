@@ -15,7 +15,7 @@ plugins {
 }
 
 // Define the main class for the application
-mainClassName = 'App'
+mainClassName = 'com.gojek.conwaygameoflife.ConwayGameOfLife'
 
 dependencies {
     // This dependency is found on compile classpath of this component and consumers.
