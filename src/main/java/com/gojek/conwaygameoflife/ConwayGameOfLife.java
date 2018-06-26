@@ -93,28 +93,28 @@ public class ConwayGameOfLife {
 
                 if (arr[y][x] == 1) {
                     if (neighbors < 2) {
-                        arr[y][x] = 0;
-                        //deadPoints.add(temp);
+                        //arr[y][x] = 0;
+                        deadPoints.add(temp);
                     } else if (neighbors == 2 || neighbors == 3) {
-                        arr[y][x] = 1;
-                        //alivePoints.add(temp);
+                        //arr[y][x] = 1;
+                        alivePoints.add(temp);
                     } else {
-                        arr[y][x] = 0;
-                        //deadPoints.add(temp);
+                        //arr[y][x] = 0;
+                        deadPoints.add(temp);
                     }
                 }
                 else {
                     if (neighbors == 3) {
-                        arr[y][x] = 1;
-                        //alivePoints.add(temp);
+                        //arr[y][x] = 1;
+                        alivePoints.add(temp);
                     }
                 }
-                /*for (int i = 0; i < alivePoints.size(); i++) {
-                    arr[alivePoints.get(i)[0]][alivePoints.get(i)[0]] = 1;
+                for (int i = 0; i < alivePoints.size(); i++) {
+                    arr[alivePoints.get(i)[0]][alivePoints.get(i)[1]] = 1;
                 }
                 for (int i = 0; i < deadPoints.size(); i++) {
-                    arr[deadPoints.get(i)[0]][alivePoints.get(i)[0]] = 0;
-                }*/
+                    arr[deadPoints.get(i)[0]][alivePoints.get(i)[1]] = 0;
+                }
             }
         }
     }
