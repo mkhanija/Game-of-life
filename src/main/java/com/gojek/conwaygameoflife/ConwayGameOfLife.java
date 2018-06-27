@@ -7,115 +7,13 @@ import java.util.ArrayList;
  */
 public class ConwayGameOfLife {
     public static void main(String[] args) {
-        int rows = 10;
-        int columns = 10;
-        int[][] world = new int[rows][columns];
-
-        //to initialize empty array
-        for (int i = 0; i < rows; i++)
-            for (int j = 0; j < columns; j++)
-                world[i][j] = 0;
-
-        initialize(world);
-
-        for (int k = 0; k < 15; k++) {
-            //to print array
-            for (int i = 0; i < rows; i++) {
-                for (int j = 0; j < columns; j++) {
-                    System.out.print(world[i][j] + " ");
-                }
-                System.out.println();
-            }
-            System.out.println("-------------------");
-            iterate(world);
-        }
+        Universe universe = new Universe(10, 10);
+        universe.printUniverse();
     }
 
-    public static void initialize(int arr[][]) {
+    public static void initializeOscillator(int arr[][]) {
         arr[4][1] = 1;
         arr[4][2] = 1;
         arr[4][3] = 1;
-    }
-
-    public static void iterate(int arr[][]) {
-        int neighbors;
-        ArrayList<Integer[]> alivePoints = new ArrayList<Integer[]>();
-        ArrayList<Integer[]> deadPoints = new ArrayList<Integer[]>();
-
-
-        for (int y = 0; y < arr.length; y++) {
-            for (int x = 0; x < arr[0].length; x++) {
-
-                if (y == 0) { //top row
-                    if (x == 0) { //leftmost column
-                        //top left corner
-                        //check: (i + 1, j) (i, j + 1) (i + 1, j + 1)
-                        neighbors = arr[y + 1][x] + arr[y + 1][x + 1] + arr[y][x + 1];
-                    }
-                    else if (x == arr[0].length - 1) { //rightmost column
-                        //top right corner
-                        //check (i - 1, j) (i, j + 1) (i - 1, j + 1)
-                        neighbors = arr[y][x - 1] + arr[y + 1][x - 1] + arr[y + 1][x];
-                    }
-                    else {
-                        //check (y, x - 1) (y + 1, x - 1) (y + 1, x) (y + 1, x + 1) (y, x + 1)
-                        neighbors = arr[y][x - 1] + arr[y + 1][x - 1] + arr[y + 1][x] + arr[y + 1][x + 1] + arr[y][x + 1] ;
-                    }
-                }
-                else if (y == arr.length - 1) { //bottom row
-                    if (x == 0) { //leftmost column
-                        //bottom left corner
-                        //check (i + 1, j) (i, j - 1) (i + 1, j - 1)
-                        neighbors = arr[y - 1][x] + arr[y - 1][x + 1] + arr[y][x + 1];
-                    }
-                    else if (x == arr[0].length - 1) { //rightmost column
-                        //bottom right corner
-                        //check (i - 1, j) (i, j - 1) (i - 1, j - 1)
-                        neighbors = arr[y - 1][x] + arr[y][x - 1] + arr[y - 1][x - 1];
-                    }
-                    else {
-                        //check (i - 1, j) (i - 1, j - 1) (i, j - 1) (i + 1, j - 1) (i + 1, j)
-                        neighbors = arr[y][x - 1] + arr[y - 1][x - 1] + arr[y - 1][x] + arr[y - 1][x + 1] + arr[y][x + 1];
-                    }
-                }
-                else if (x == 0) {
-                    neighbors = arr[y - 1][x] + arr[y + 1][x] + arr[y - 1][x + 1] + arr[y][x + 1] + arr[y + 1][x + 1];
-                }
-                else if (x == arr[0].length - 1) {
-                    neighbors = arr[y - 1][x] + arr[y + 1][x] + arr[y - 1][x - 1] + arr[y][x - 1] + arr[y + 1][x - 1];
-                }
-                else {
-                    neighbors = arr[y][x - 1] + arr[y + 1][x - 1] + arr[y + 1][x] + arr[y + 1][x + 1] + arr[y][x + 1];
-                    neighbors += arr[y - 1][x - 1] + arr[y - 1][x] + arr[y - 1][x + 1];
-                }
-
-                Integer[] temp = {y, x};
-
-                if (arr[y][x] == 1) {
-                    if (neighbors < 2) {
-                        //arr[y][x] = 0;
-                        deadPoints.add(temp);
-                    } else if (neighbors == 2 || neighbors == 3) {
-                        //arr[y][x] = 1;
-                        alivePoints.add(temp);
-                    } else {
-                        //arr[y][x] = 0;
-                        deadPoints.add(temp);
-                    }
-                }
-                else {
-                    if (neighbors == 3) {
-                        //arr[y][x] = 1;
-                        alivePoints.add(temp);
-                    }
-                }
-                for (int i = 0; i < alivePoints.size(); i++) {
-                    arr[alivePoints.get(i)[0]][alivePoints.get(i)[1]] = 1;
-                }
-                for (int i = 0; i < deadPoints.size(); i++) {
-                    arr[deadPoints.get(i)[0]][alivePoints.get(i)[1]] = 0;
-                }
-            }
-        }
     }
 }
