@@ -1,6 +1,5 @@
 package com.gojek.conwaygameoflife;
 
-import com.gojek.conwaygameoflife.ConwayGameOfLife;
 import org.junit.Test;
 import static org.junit.Assert.*;
 
