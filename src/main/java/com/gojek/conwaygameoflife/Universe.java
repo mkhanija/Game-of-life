@@ -41,8 +41,24 @@ public class Universe {
     }
 
     public int[][] updateUniverse() {
+        Universe newUniverse = new Universe(getHeight(), getWidth());
         for (int y = 0; y < getHeight(); y++) {
             for (int x = 0; y < getWidth(); x++) {
+                int neighbors = countNeighbors(x, y);
+                if (getGrid()[y][x] == 1) {
+                    if (neighbors < 2) {
+                        newUniverse.getGrid()[y][x] = 0;
+                    } else if (neighbors == 2 || neighbors == 3) {
+                        newUniverse.getGrid()[y][x] = 1;
+                    } else {
+                        newUniverse.getGrid()[y][x] = 0;
+                    }
+                }
+                else {
+                    if (neighbors == 3) {
+                        newUniverse.getGrid()[y][x] = 1;
+                    }
+                }
 
             }
         }
