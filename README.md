@@ -38,3 +38,6 @@ Build Instructions:
 
 Run Instructions: 
 ./gradlew run
+
+Test Instructions:
+gradle clean test

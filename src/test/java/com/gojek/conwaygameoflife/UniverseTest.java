@@ -60,6 +60,5 @@ public class UniverseTest {
 
         universe.updateUniverse();
         assertArrayEquals(universe.getGrid(), ans);
-
     }
 }
