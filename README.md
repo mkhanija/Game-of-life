@@ -40,4 +40,6 @@ Run Instructions:
 ./gradlew run
 
 Test Instructions:
-gradle clean test
+gradle clean test 
+OR
+./gradlew test
