@@ -8,7 +8,7 @@ import java.util.Scanner;
 public class ConwayGameOfLife {
     public static void main(String[] args) {
         Universe universe = new Universe(5, 5);
-        initializeOscillator(universe);
+        initializeUniverse(universe);
 
         for (int i = 0; i < 10; i++) {
             universe.printUniverse();
@@ -16,7 +16,7 @@ public class ConwayGameOfLife {
         }
     }
 
-    public static void initializeOscillator(Universe universe) {
+    public static void initializeUniverse(Universe universe) {
         Scanner sc = null;
 
         try {
