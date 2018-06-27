@@ -45,6 +45,22 @@ public class UniverseTest {
 
     @Test
     public void testProcessUniverse() {
+        Universe universe = new Universe(3, 3);
+        int[][] initial = new int [3][3];
+        initial[1][0] = 1;
+        initial[1][1] = 1;
+        initial[1][2] = 1;
+
+        universe.setGrid(initial);
+
+        int[][] ans = new int [3][3];
+        ans[0][1] = 1;
+        ans[1][1] = 1;
+        ans[2][1] = 1;
+
+        universe.updateUniverse();
+        assertEquals(universe.getGrid(), ans);
+
     }
 
     @Test
