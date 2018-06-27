@@ -28,6 +28,19 @@ public class UniverseTest {
         universe.setGrid(tester);
 
         assertEquals(universe.countNeighbors(1,1), 3);
+        assertEquals(universe.countNeighbors(0,0), 1);
+        assertEquals(universe.countNeighbors(0, 1), 2);
+        assertEquals(universe.countNeighbors(0,2), 1);
+
+        tester[0][1] = 1;
+        tester[0][2] = 1;
+        tester[1][2] = 1;
+        tester[2][1] = 1;
+        tester[2][2] = 1;
+        assertEquals(universe.countNeighbors(1,2), 4);
+        assertEquals(universe.countNeighbors(2,2), 2);
+        assertEquals(universe.countNeighbors(2,1), 4);
+        assertEquals(universe.countNeighbors(2,0), 2);
     }
 
     @Test
