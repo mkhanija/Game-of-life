@@ -40,7 +40,7 @@ public class Universe {
         return neighbors;
     }
 
-    public int[][] updateUniverse() {
+    public Universe updateUniverse() {
         Universe newUniverse = new Universe(getHeight(), getWidth());
         for (int y = 0; y < getHeight(); y++) {
             for (int x = 0; y < getWidth(); x++) {
@@ -59,9 +59,9 @@ public class Universe {
                         newUniverse.getGrid()[y][x] = 1;
                     }
                 }
-
             }
         }
+        return newUniverse;
     }
 
     public int[][] getGrid() {
