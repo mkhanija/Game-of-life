@@ -8,15 +8,16 @@ import java.util.ArrayList;
 public class ConwayGameOfLife {
     public static void main(String[] args) {
         Universe universe = new Universe(10, 10);
+        initializeOscillator(universe);
         for (int i = 0; i < 10; i++) {
             universe.printUniverse();
             universe.updateUniverse();
         }
     }
 
-    public static void initializeOscillator(int arr[][]) {
-        arr[4][1] = 1;
-        arr[4][2] = 1;
-        arr[4][3] = 1;
+    public static void initializeOscillator(Universe universe) {
+        universe.getGrid()[4][1] = 1;
+        universe.getGrid()[4][2] = 1;
+        universe.getGrid()[4][3] = 1;
     }
 }

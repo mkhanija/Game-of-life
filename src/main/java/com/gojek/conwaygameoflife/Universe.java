@@ -29,8 +29,8 @@ public class Universe {
 
         //count neighbor logic
         for (int i = 0; i < heightDir.length; i++){
-            int heightCheck = getGrid()[y][x] + heightDir[i];
-            int widthCheck = getGrid()[y][x] + widthDir[i];
+            int heightCheck = y + heightDir[i] ;
+            int widthCheck = x + widthDir[i];
 
             if ((heightCheck >= 0 && heightCheck < getHeight()) && (widthCheck >= 0 && widthCheck < getWidth()) && getGrid()[heightCheck][widthCheck] == 1) {
                 neighbors++;
@@ -40,10 +40,10 @@ public class Universe {
         return neighbors;
     }
 
-    public Universe updateUniverse() {
+    public Universe processUniverse() {
         Universe newUniverse = new Universe(getHeight(), getWidth());
         for (int y = 0; y < getHeight(); y++) {
-            for (int x = 0; y < getWidth(); x++) {
+            for (int x = 0; x < getWidth(); x++) {
                 int neighbors = countNeighbors(x, y);
                 if (getGrid()[y][x] == 1) {
                     if (neighbors < 2) {
@@ -64,8 +64,16 @@ public class Universe {
         return newUniverse;
     }
 
+    public void updateUniverse() {
+        setGrid(processUniverse().getGrid());
+    }
+
     public int[][] getGrid() {
         return grid;
+    }
+
+    public void setGrid(int[][] grid) {
+        this.grid = grid;
     }
 
     public int getHeight() {
