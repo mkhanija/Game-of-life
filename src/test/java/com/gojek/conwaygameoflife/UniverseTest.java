@@ -14,7 +14,7 @@ public class UniverseTest {
         assertEquals(universe.getWidth(), 15);
 
         int[][] answer = new int[15][15];
-        assertEquals(universe.getGrid(), answer);
+        assertArrayEquals(universe.getGrid(), answer);
     }
 
     @Test
@@ -59,11 +59,7 @@ public class UniverseTest {
         ans[2][1] = 1;
 
         universe.updateUniverse();
-        assertEquals(universe.getGrid(), ans);
+        assertArrayEquals(universe.getGrid(), ans);
 
-    }
-
-    @Test
-    public void testUpdateUniverse() {
     }
 }
