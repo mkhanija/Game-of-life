@@ -8,7 +8,10 @@ import java.util.ArrayList;
 public class ConwayGameOfLife {
     public static void main(String[] args) {
         Universe universe = new Universe(10, 10);
-        universe.printUniverse();
+        for (int i = 0; i < 10; i++) {
+            universe.printUniverse();
+            universe.updateUniverse();
+        }
     }
 
     public static void initializeOscillator(int arr[][]) {
