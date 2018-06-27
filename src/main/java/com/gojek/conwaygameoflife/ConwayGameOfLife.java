@@ -25,7 +25,7 @@ public class ConwayGameOfLife {
         Scanner sc = null;
 
         try {
-            sc = new Scanner(new FileInputStream("./input.txt"));
+            sc = new Scanner(new FileInputStream("./src/main/resources/input.txt"));
         } catch (FileNotFoundException e){
             System.out.println("File is not found. Please check your input file.");
         }
