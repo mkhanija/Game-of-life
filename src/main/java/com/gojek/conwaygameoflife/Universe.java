@@ -19,7 +19,10 @@ public class Universe {
             }
             System.out.println();
         }
-        System.out.println("-------------------");
+        for (int i = 0; i < (width * 2 - 1); i++) {
+            System.out.print("-");
+        }
+        System.out.println("");
     }
 
     public int countNeighbors(int x, int y) {
@@ -74,6 +77,8 @@ public class Universe {
 
     public void setGrid(int[][] grid) {
         this.grid = grid;
+        this.height = grid.length;
+        this.width = grid[0].length;
     }
 
     public int getHeight() {
